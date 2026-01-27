@@ -1,0 +1,45 @@
+[ {
+  "id" : 101,
+  "name" : "Max Mustermann",
+  "isActive" : true,
+  "age" : 29,
+  "skills" : [ "Java", "Spring Boot", "Docker" ],
+  "contact" : {
+    "email" : "max@example.com",
+    "phone" : "+1-555-0100"
+  },
+  "notes" : "Standard profile."
+}, {
+  "id" : 102,
+  "name" : "Vanya Ivanov",
+  "isActive" : false,
+  "age" : 22,
+  "skills" : [ "JavaScript", "React" ],
+  "contact" : {
+    "email" : "vanya@test.org"
+  },
+  "notes" : "He said: \"I love coding in Java\" which might break CSV if not escaped."
+}, {
+  "id" : 103,
+  "name" : "Alex Smith",
+  "isActive" : true,
+  "age" : 34,
+  "skills" : [ ],
+  "contact" : null,
+  "notes" : null
+}, {
+  "id" : 104,
+  "name" : "Sarah Connor",
+  "isActive" : true,
+  "age" : 41,
+  "skills" : [ "C++" ],
+  "contact" : {
+    "email" : "sarah@skynet.net",
+    "phone" : "+1-555-9999",
+    "address" : {
+      "city" : "Los Angeles",
+      "zip" : "90001"
+    }
+  },
+  "notes" : "Profile with deep nesting."
+} ]

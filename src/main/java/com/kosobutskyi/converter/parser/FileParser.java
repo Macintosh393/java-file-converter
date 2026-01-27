@@ -1,4 +1,9 @@
 package com.kosobutskyi.converter.parser;
 
-public class FileParser {
+import com.kosobutskyi.converter.dto.ParsedDTO;
+
+import java.io.File;
+
+public abstract class FileParser {
+    public abstract ParsedDTO parse(File inputFile);
 }
