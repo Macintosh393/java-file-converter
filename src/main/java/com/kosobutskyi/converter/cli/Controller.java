@@ -11,8 +11,8 @@ import java.io.File;
 
 public class Controller {
     public static void main(String[] args) {
-        String inputFileName = "data/input.xml";
-        String outputFileName = "data/output.csv";
+        String inputFileName = "data/input.csv";
+        String outputFileName = "data/output.xml";
 
         File inputFile = new File(inputFileName);
         File outputFile = new File(outputFileName);

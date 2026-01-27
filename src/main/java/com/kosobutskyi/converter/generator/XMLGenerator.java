@@ -33,15 +33,15 @@ public class XMLGenerator extends FileGenerator {
                 rootNode = wrapper;
             }
 
-            if (rootNode.isObject()) {
-                wrapArraysRecursive((ObjectNode) rootNode, jsonMapper);
-            } else if (rootNode.isArray()) {
-                for (JsonNode childNode : rootNode) {
-                    if (childNode.isObject()) {
-                        wrapArraysRecursive((ObjectNode) rootNode, jsonMapper);
-                    }
-                }
-            }
+//            if (rootNode.isObject()) {
+//                wrapArraysRecursive((ObjectNode) rootNode, jsonMapper);
+//            } else if (rootNode.isArray()) {
+//                for (JsonNode childNode : rootNode) {
+//                    if (childNode.isObject()) {
+//                        wrapArraysRecursive((ObjectNode) rootNode, jsonMapper);
+//                    }
+//                }
+//            }
 
             xmlMapper.writer().withDefaultPrettyPrinter().withRootName("Root").writeValue(outputFile, rootNode);
         } catch (StreamWriteException e) {

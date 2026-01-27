@@ -1,5 +1,5 @@
 "id","name","isActive","age","skills","contact","notes"
-"101","Max Mustermann","true","29","{'item':['Java','Spring Boot','Docker']}","{'email':'max@example.com','phone':'+1-555-0100'}","Standard profile."
-"102","Vanya Ivanov","false","22","{'item':['JavaScript','React']}","{'email':'vanya@test.org'}","He said: ""I love coding in Java"" which might break CSV if not escaped."
+"101","Max Mustermann","true","29","['Java','Spring Boot','Docker']","{'email':'max@example.com','phone':'+1-555-0100'}","Standard profile."
+"102","Vanya Ivanov","false","22","['JavaScript','React']","{'email':'vanya@test.org'}","He said: ""I love coding in Java"" which might break CSV if not escaped."
 "103","Alex Smith","true","34","","",""
-"104","Sarah Connor","true","41","{'item':'C++'}","{'email':'sarah@skynet.net','phone':'+1-555-9999','address':{'city':'Los Angeles','zip':'90001'}}","Profile with deep nesting."
+"104","Sarah Connor","true","41","C++","{'email':'sarah@skynet.net','phone':'+1-555-9999','address':{'city':'Los Angeles','zip':'90001'}}","Profile with deep nesting."

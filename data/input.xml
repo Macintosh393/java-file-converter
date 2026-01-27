@@ -1,62 +1,53 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Root>
     <object>
-        <item>
-            <id>101</id>
-            <name>Max Mustermann</name>
-            <isActive>true</isActive>
-            <age>29</age>
-            <skills>
-                <item>Java</item>
-                <item>Spring Boot</item>
-                <item>Docker</item>
-            </skills>
-            <contact>
-                <email>max@example.com</email>
-                <phone>+1-555-0100</phone>
-            </contact>
-            <notes>Standard profile.</notes>
-        </item>
-        <item>
-            <id>102</id>
-            <name>Vanya Ivanov</name>
-            <isActive>false</isActive>
-            <age>22</age>
-            <skills>
-                <item>JavaScript</item>
-                <item>React</item>
-            </skills>
-            <contact>
-                <email>vanya@test.org</email>
-            </contact>
-            <notes>He said: "I love coding in Java" which might break CSV if not escaped.</notes>
-        </item>
-        <item>
-            <id>103</id>
-            <name>Alex Smith</name>
-            <isActive>true</isActive>
-            <age>34</age>
-            <skills/>
-            <contact/>
-            <notes/>
-        </item>
-        <item>
-            <id>104</id>
-            <name>Sarah Connor</name>
-            <isActive>true</isActive>
-            <age>41</age>
-            <skills>
-                <item>C++</item>
-            </skills>
-            <contact>
-                <email>sarah@skynet.net</email>
-                <phone>+1-555-9999</phone>
-                <address>
-                    <city>Los Angeles</city>
-                    <zip>90001</zip>
-                </address>
-            </contact>
-            <notes>Profile with deep nesting.</notes>
-        </item>
+        <id>101</id>
+        <name>Max Mustermann</name>
+        <isActive>true</isActive>
+        <age>29</age>
+        <skills>Java</skills>
+        <skills>Spring Boot</skills>
+        <skills>Docker</skills>
+        <contact>
+            <email>max@example.com</email>
+            <phone>+1-555-0100</phone>
+        </contact>
+        <notes>Standard profile.</notes>
+    </object>
+    <object>
+        <id>102</id>
+        <name>Vanya Ivanov</name>
+        <isActive>false</isActive>
+        <age>22</age>
+        <skills>JavaScript</skills>
+        <skills>React</skills>
+        <contact>
+            <email>vanya@test.org</email>
+        </contact>
+        <notes>He said: "I love coding in Java" which might break CSV if not escaped.</notes>
+    </object>
+    <object>
+        <id>103</id>
+        <name>Alex Smith</name>
+        <isActive>true</isActive>
+        <age>34</age>
+        <contact/>
+        <notes/>
+    </object>
+    <object>
+        <id>104</id>
+        <name>Sarah Connor</name>
+        <isActive>true</isActive>
+        <age>41</age>
+        <skills>C++</skills>
+        <contact>
+            <email>sarah@skynet.net</email>
+            <phone>+1-555-9999</phone>
+            <address>
+                <city>Los Angeles</city>
+                <zip>90001</zip>
+            </address>
+        </contact>
+        <notes>Profile with deep nesting.</notes>
     </object>
 </Root>
