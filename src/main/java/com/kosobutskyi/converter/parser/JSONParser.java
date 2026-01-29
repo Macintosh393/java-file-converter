@@ -1,5 +1,6 @@
 package com.kosobutskyi.converter.parser;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosobutskyi.converter.dto.ParsedDTO;
@@ -19,6 +20,8 @@ public class JSONParser extends FileParser {
             }
 
             return new ParsedDTO(rootNode);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

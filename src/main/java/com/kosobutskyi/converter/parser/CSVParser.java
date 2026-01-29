@@ -14,6 +14,11 @@ import java.io.IOException;
 import java.util.List;
 
 public class CSVParser extends FileParser {
+    private String[] headers = null;
+
+    public void setHeaders(String[] headers) {
+        this.headers = headers;
+    }
 
     @Override
     public ParsedDTO parse(File inputFile) {
@@ -27,9 +32,15 @@ public class CSVParser extends FileParser {
                 throw new IllegalArgumentException("CSV file is empty");
             }
 
-            String[] headers = allRows.get(0);
+            String[] headers;
+            if (this.headers != null) {
+                headers = this.headers;
+            } else {
+                headers = allRows.get(0);
+                allRows = allRows.subList(1, allRows.size());
+            }
 
-            for (int i = 1; i < allRows.size(); i++) {
+            for (int i = 0; i < allRows.size(); i++) {
                 String[] row = allRows.get(i);
                 ObjectNode objectNode = mapper.createObjectNode();
 

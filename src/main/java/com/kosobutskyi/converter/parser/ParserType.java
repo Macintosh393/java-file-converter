@@ -1,7 +1,5 @@
 package com.kosobutskyi.converter.parser;
 
-
-
 import java.util.Optional;
 
 public enum ParserType {
