@@ -28,11 +28,13 @@ public class XMLParser extends FileParser {
     }
 
     public static JsonNode parseArray(JsonNode parentNode) {
-        if (!parentNode.isArray()) {
-            for (JsonNode child : parentNode) {
-                parentNode = parseArray(child);
-            }
+        if (parentNode.isArray()) {
+            return parentNode;
+        } else if (parentNode.isObject() && parentNode.size() == 1) {
+            JsonNode child = parentNode.elements().next();
+            return parseArray(child);
+        } else {
+            return parentNode;
         }
-        return parentNode;
     }
 }
