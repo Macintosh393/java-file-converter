@@ -2,6 +2,7 @@ package com.kosobutskyi.converter.generator;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.kosobutskyi.converter.dto.ParsedDTO;
+import com.kosobutskyi.converter.exception.GenerationException;
 import com.opencsv.CSVWriter;
 
 import java.io.File;
@@ -13,7 +14,7 @@ import java.util.Set;
 
 public class CSVGenerator extends FileGenerator {
     @Override
-    public void generate(File outputFile, ParsedDTO data) {
+    public void generate(File outputFile, ParsedDTO data) throws GenerationException {
         JsonNode rootNode = data.data();
         Set<String> headers = new LinkedHashSet<>();
 
@@ -53,7 +54,7 @@ public class CSVGenerator extends FileGenerator {
 
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new GenerationException("Failed to generate CSV file: " + e.getMessage(), e);
         }
     }
 }

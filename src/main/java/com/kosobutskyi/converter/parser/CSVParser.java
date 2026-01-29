@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.kosobutskyi.converter.dto.ParsedDTO;
+import com.kosobutskyi.converter.exception.InvalidFileFormatException;
+import com.kosobutskyi.converter.exception.ParsingException;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
 
@@ -21,7 +23,7 @@ public class CSVParser extends FileParser {
     }
 
     @Override
-    public ParsedDTO parse(File inputFile) {
+    public ParsedDTO parse(File inputFile) throws ParsingException {
         ObjectMapper mapper = new ObjectMapper();
         ArrayNode rootArray = mapper.createArrayNode();
 
@@ -29,7 +31,7 @@ public class CSVParser extends FileParser {
             List<String[]> allRows = reader.readAll();
 
             if (allRows.isEmpty()) {
-                throw new IllegalArgumentException("CSV file is empty");
+                throw new InvalidFileFormatException("CSV file is empty");
             }
 
             String[] headers;
@@ -56,9 +58,13 @@ public class CSVParser extends FileParser {
 
 
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException | CsvException e) {
-            throw new RuntimeException(e);
+            throw new ParsingException("CSV file not found: " + inputFile.getPath(), e);
+        } catch (IOException e) {
+            throw new ParsingException("Failed to read CSV file: " + e.getMessage(), e);
+        } catch (CsvException e) {
+            throw new ParsingException("Invalid CSV format: " + e.getMessage(), e);
+        } catch (InvalidFileFormatException e) {
+            throw new ParsingException(e.getMessage(), e);
         }
 
         return new ParsedDTO(rootArray);

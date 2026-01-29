@@ -3,6 +3,8 @@ package com.kosobutskyi.converter.parser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.kosobutskyi.converter.dto.ParsedDTO;
+import com.kosobutskyi.converter.exception.InvalidFileFormatException;
+import com.kosobutskyi.converter.exception.ParsingException;
 import com.kosobutskyi.converter.utils.XmlValidator;
 
 import java.io.File;
@@ -10,7 +12,7 @@ import java.io.IOException;
 
 public class XMLParser extends FileParser {
     @Override
-    public ParsedDTO parse(File inputFile) {
+    public ParsedDTO parse(File inputFile) throws ParsingException {
         try {
             XmlValidator.isXmlWellFormed(inputFile.getPath());
 
@@ -19,7 +21,9 @@ public class XMLParser extends FileParser {
             rootNode = parseArray(rootNode);
             return new ParsedDTO(rootNode);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new ParsingException("Failed to parse XML file: " + e.getMessage(), e);
+        } catch (InvalidFileFormatException e) {
+            throw new ParsingException("Invalid XML format: " + e.getMessage(), e);
         }
     }
 
