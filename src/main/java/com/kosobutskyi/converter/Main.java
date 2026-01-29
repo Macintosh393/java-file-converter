@@ -12,6 +12,13 @@ public class Main {
     public static void main(String[] args) {
         try {
             List<String> argsArray = new ArrayList<>(List.of(args));
+
+            if (argsArray.contains("--help")) {
+                System.out.println("Usage: java -jar file-converter.jar --input <input-file> --output <output-file> [--csv-mapping [h1,h2,h3,...]]");
+                System.out.println("Optional flag --csv-mapping [array of headers] for CSV files with no headers");
+                System.exit(0);
+            }
+
             InputValidator.validate(argsArray);
 
             int inputComIdx = argsArray.indexOf("--input");
@@ -33,7 +40,7 @@ public class Main {
             System.out.println("File conversion completed successfully.");
         } catch (InputValidationException e) {
             System.err.println("Error: " + e.getMessage());
-            System.err.println("Usage: java -jar file-converter.jar --input <input-file> --output <output-file> --csv-mapping [header1,header2,...]");
+            System.err.println("Usage: java -jar file-converter.jar --input <input-file> --output <output-file> [--csv-mapping [header1,header2,...]]");
             System.exit(1);
         } catch (FileConversionException e) {
             System.err.println("Conversion failed: " + e.getMessage());
