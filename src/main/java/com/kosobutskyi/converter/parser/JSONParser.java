@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kosobutskyi.converter.dto.ParsedDTO;
-import com.kosobutskyi.converter.exception.InvalidFileFormatException;
 import com.kosobutskyi.converter.exception.ParsingException;
 
 import java.io.File;
@@ -16,10 +15,6 @@ public class JSONParser extends FileParser {
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode rootNode = mapper.readTree(inputFile);
-
-            if (!rootNode.isArray()) {
-                throw new InvalidFileFormatException("Input JSON should be an array of objects");
-            }
 
             return new ParsedDTO(rootNode);
         } catch (JsonProcessingException e) {

@@ -2,7 +2,6 @@ package com.kosobutskyi.converter.parser;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.kosobutskyi.converter.dto.ParsedDTO;
-import com.kosobutskyi.converter.exception.InvalidFileFormatException;
 import com.kosobutskyi.converter.exception.ParsingException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -54,14 +53,19 @@ class JSONParserTest {
     }
 
     @Test
-    void testParse_JsonObjectInsteadOfArray() throws IOException {
+    void testParse_ValidJsonObject() throws IOException, ParsingException {
         File jsonFile = tempDir.resolve("test.json").toFile();
         try (FileWriter writer = new FileWriter(jsonFile)) {
             writer.write("{\"name\": \"John\", \"age\": 25}");
         }
 
-        InvalidFileFormatException exception = assertThrows(InvalidFileFormatException.class, () -> parser.parse(jsonFile));
-        assertEquals("Input JSON should be an array of objects", exception.getMessage());
+        ParsedDTO result = parser.parse(jsonFile);
+
+        assertNotNull(result);
+        JsonNode data = result.data();
+        assertTrue(data.isObject());
+        assertEquals("John", data.get("name").asText());
+        assertEquals(25, data.get("age").asInt());
     }
 
     @Test

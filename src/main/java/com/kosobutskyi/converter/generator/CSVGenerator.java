@@ -1,6 +1,8 @@
 package com.kosobutskyi.converter.generator;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.kosobutskyi.converter.dto.ParsedDTO;
 import com.kosobutskyi.converter.exception.GenerationException;
 import com.opencsv.CSVWriter;
@@ -17,6 +19,13 @@ public class CSVGenerator extends FileGenerator {
     public void generate(File outputFile, ParsedDTO data) throws GenerationException {
         JsonNode rootNode = data.data();
         Set<String> headers = new LinkedHashSet<>();
+
+        if (!rootNode.isArray()) {
+            ObjectMapper mapper = new ObjectMapper();
+            ObjectNode wrapper = mapper.createObjectNode();
+            wrapper.put("root", rootNode);
+            rootNode = wrapper;
+        }
 
         for (JsonNode childNode : rootNode) {
             Iterator<String> fieldNames = childNode.fieldNames();
