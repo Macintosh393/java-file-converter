@@ -14,7 +14,7 @@ public class Main {
             List<String> argsArray = new ArrayList<>(List.of(args));
 
             if (argsArray.contains("--help")) {
-                System.out.println("Usage: java -jar file-converter.jar --input <input-file> --output <output-file> [--csv-mapping [h1,h2,h3,...]]");
+                System.out.println("Usage: java -jar file-converter.jar --input <input-file> --output <output-file> [--csv-mapping <[h1,h2,h3,...]>]");
                 System.out.println("Optional flag --csv-mapping [array of headers] for CSV files with no headers");
                 System.exit(0);
             }

@@ -1,8 +1,8 @@
 [ {
-  "id" : "101",
+  "id" : 101,
   "name" : "Max Mustermann",
-  "isActive" : "true",
-  "age" : "29",
+  "isActive" : true,
+  "age" : 29,
   "skills" : [ "Java", "Spring Boot", "Docker" ],
   "contact" : {
     "email" : "max@example.com",
@@ -10,27 +10,28 @@
   },
   "notes" : "Standard profile."
 }, {
-  "id" : "102",
+  "id" : 102,
   "name" : "Vanya Ivanov",
-  "isActive" : "false",
-  "age" : "22",
+  "isActive" : false,
+  "age" : 22,
   "skills" : [ "JavaScript", "React" ],
   "contact" : {
     "email" : "vanya@test.org"
   },
   "notes" : "He said: \"I love coding in Java\" which might break CSV if not escaped."
 }, {
-  "id" : "103",
+  "id" : 103,
   "name" : "Alex Smith",
-  "isActive" : "true",
-  "age" : "34",
-  "contact" : "",
-  "notes" : ""
+  "isActive" : true,
+  "age" : 34,
+  "skills" : null,
+  "contact" : null,
+  "notes" : null
 }, {
-  "id" : "104",
+  "id" : 104,
   "name" : "Sarah Connor",
-  "isActive" : "true",
-  "age" : "41",
+  "isActive" : true,
+  "age" : 41,
   "skills" : "C++",
   "contact" : {
     "email" : "sarah@skynet.net",

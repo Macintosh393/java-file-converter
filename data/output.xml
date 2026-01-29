@@ -31,7 +31,6 @@
     <name>Alex Smith</name>
     <isActive>true</isActive>
     <age>34</age>
-    <skills/>
     <contact/>
     <notes/>
   </object>
