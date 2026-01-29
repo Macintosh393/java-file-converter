@@ -14,7 +14,7 @@ The application is executed as a standalone JAR file. Ensure you have Java 23 or
 
 ### Command Syntax
 ```bash
-java -jar file-converter.jar --input <input-file> --output <output-file> [--csv-mapping [header1,header2,...]]
+java -jar file-converter.jar --input <input-file> --output <output-file> [--csv-mapping [<header1,header2,...>]]
 ```
 
 ### Parameters
